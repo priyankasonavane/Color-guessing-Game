@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Color Guessing Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="do_game()">
+
+        <script>
+            var colors = ["red", "black", "grey", "maroon", "indigo", "navy", "lime", "orange", "pink", "purple"];
+            var rand;
+            var target;
+            var count = 0;
+            var finished = false;
+            var guess_color;
+            function  do_game() {
+                colors.sort();
+                target = Math.floor(Math.random() * colors.length);
+                alert(colors[target]);
+                while (!finished) {
+                    guess_color = prompt("I am thinking of one of these colors\n\n" + colors +
+                            "\n\nWhat color am I thinking of?");
+                    count += 1;
+                    finished = guess_check();
+                }
+
+            }
+            function guess_check() {
+
+                var num = colors.indexOf(guess_color);
+                if (num < 0) {
+                    alert("I don’t recognize that color!");
+                    return false;
+                }
+                if (num > target) {
+                    alert("Your input is alphabetically higher than mine!");
+                    return false;
+                }
+                if (num < target) {
+                    alert("Your input is alphabetically lower than mine!");
+                    return false;
+                }
+
+                elem_body = document.getElementsByTagName("body")[0];
+
+                alert("You are right! You took " + count + " guesses!");
+                elem_body.style.background = colors[target];
+
+
+                return true;
+            }
+        </script>
+    </body>
+</html>
