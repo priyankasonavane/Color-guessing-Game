@@ -1,5 +1,5 @@
 # Color-guessing-Game
-The objective of the game is for the player to guess the color which your program is thinking of.
+The objective of the game is for the player to guess the color which my program is thinking of.
 The player needs to enter their guess.A response from the browser will then be shown.
 
 1.	If the color entered by the player is not in the array of colors used by the game, an appropriate message is shown:
